@@ -91,3 +91,12 @@ This project implements an HTTP server that handles authentication and JWKS (JSO
 - `http.server`: For handling HTTP requests.
 - `jwt`: For creating and verifying JWT tokens.
 - `cryptography`: For RSA key generation and public key handling.
+
+
+
+## ChatGPt and DeepSeek Promopts:
+1.  Explain detail about Restful jwks server and relation of JWT and JWKS 
+2.  Give me Sample code for jwks server
+3.  Firstly error I got was my JWT token was not exprieing and I paste the error in GPT and told to change it to 10secs.
+4.  Then Another error was Patch was found invalid I prompted to solve using HTTP server not FAST API to see if the error was still there but it wasnt resolved
+5.  Prompoted to write the 10 unit test which explicitly test all parts of code.
