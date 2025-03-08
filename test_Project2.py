@@ -1,14 +1,21 @@
-import unittest
-import requests
+"""
+Test suite for the HTTP server handling authentication and JWKS endpoints.
+Includes tests for JWT generation, JWKS retrieval, and database validation.
+"""
+
 import sqlite3
 import time
+import unittest
+import requests
 import jwt
-from cryptography.hazmat.primitives import serialization
 
 BASE_URL = "http://127.0.0.1:8080"
 DB_FILE = "totally_not_my_privateKeys.db"
 
+
 class TestAuthServer(unittest.TestCase):
+    """Test cases for the authentication and JWKS server."""
+
     @classmethod
     def setUpClass(cls):
         """Ensure the server is running before running tests."""
@@ -98,7 +105,6 @@ class TestAuthServer(unittest.TestCase):
         token = response.json().get("token")
         self.assertIsNotNone(token)
 
-        # Decode the token without verification to inspect its claims
         decoded = jwt.decode(token, options={"verify_signature": False})
         self.assertIn("sub", decoded)
         self.assertEqual(decoded["sub"], "mock-user")
@@ -114,12 +120,10 @@ class TestAuthServer(unittest.TestCase):
     def _validate_jwt(self, token, should_be_expired=False):
         """Helper function to validate a JWT."""
         try:
-            # Decode the token without verification to inspect its claims
             decoded = jwt.decode(token, options={"verify_signature": False})
             exp = decoded.get("exp")
             self.assertIsNotNone(exp, "JWT does not contain an expiration claim.")
 
-            # Check if the token is expired
             now = int(time.time())
             if should_be_expired:
                 self.assertLess(exp, now, "JWT should be expired but is not.")
@@ -127,6 +131,7 @@ class TestAuthServer(unittest.TestCase):
                 self.assertGreater(exp, now, "JWT should be valid but is expired.")
         except jwt.PyJWTError as e:
             self.fail(f"JWT validation failed: {e}")
+
 
 if __name__ == "__main__":
     unittest.main()

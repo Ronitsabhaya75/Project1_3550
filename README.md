@@ -1,11 +1,72 @@
-# JWKS Server
+
+
+# JWKS Server - Project-2
+
+```
+Name: Ronitkumar Sabhaya
+EUID: rds0305
+Email: ronitkumarsabhaya@my.unt.edu
+CSCE 3550 - Foundations of Cyber Security
+Project 2 - Extending the JWKS Server
+```
+
+## Overview
+
+This project extends the basic JWKS Server from Project 1 by adding a SQLite database to store and manage JSON Web Keys (JWKs) and JSON Web Tokens (JWTs). The server supports RSA key generation, JWT signing, and proper HTTP method enforcement. It provides endpoints for generating JWTs and retrieving public keys in JWKS format.
+
+---
+
+### 1. Setup
+#### Prequisites
+1. Python 3.11+
+2. Required Python packages: cryptography, pyjwt, sqlite3
+
+#### Installation: 
+
+```bash
+git clone https://github.com/Ronitsabhaya75/Project1_3550.git
+``` 
+
+```bash
+cd Project1_3550
+```
+
+install all dependecy library such cryptography pyjwt sqlite3 http.server time
+
+```
+--------------------------------------------------------------------------------
+```
+Run this program using
+```bash
+python3 sample.py
+```
+```
+--------------------------------------------------------------------------------
+```
+**Test Client**
+Make sure to run the test client on a separate IDE or Terminal instance!
+```bash
+python3 test_Project2.py 
+```
+## ChatGPt and DeepSeek Promopts:
+1.  Detail explaination of connecting sqlite3 database
+2.  How will RSA key will look like and how to insert 
+3.  Give me Sample code integrating with sample server
+4.  Frist error : ```Valid JWK found in JWKS        │ unexpected end of JSON input │       20 │       0 │```
+5.  Second error: ```│ Valid JWK found in JWKS        │ token is unverifiable: error while executing keyfunc: the given key ID was not found in the JWKS │       20 │       0 │```
+6.  Third error: ```│ Valid JWK found in JWKS        │ token is malformed: could not base64 decode header: illegal base64 data at input byte 0 │       20 │       0 ```
+7.  Prompoted to write the 9 unit test which explicitly test all parts of code.
+
+
+
+
+# JWKS Server -  Project1
 ```
 Name: Ronitkumar Sabhaya
 EUID: rds0305
 Email: ronitkumarsabhaya@my.unt.edu
 CSCE 3550 Project1
 ```
-
 
 # HTTP Authentication Server with JWKS Endpoint
 
