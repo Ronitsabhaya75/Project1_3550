@@ -33,21 +33,22 @@ cd Project1_3550
 
 install all dependecy library such cryptography pyjwt sqlite3 http.server time
 
-```
+
 --------------------------------------------------------------------------------
-```
+
 Run this program using
 ```bash
 python3 sample.py
 ```
-```
+
 --------------------------------------------------------------------------------
-```
+
 **Test Client**
 Make sure to run the test client on a separate IDE or Terminal instance!
 ```bash
 python3 test_Project2.py 
 ```
+
 ## ChatGPt and DeepSeek Promopts:
 1.  Detail explaination of connecting sqlite3 database
 2.  How will RSA key will look like and how to insert 
