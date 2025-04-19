@@ -509,4 +509,9 @@ def run_server():
         return
 
     with socketserver.TCPServer(("", PORT), SimpleHTTPRequestHandler) as httpd:
-        print(f"Se
+        print(f"Serving on port {PORT}")
+        httpd.serve_forever()
+
+
+if __name__ == "__main__":
+    run_server()
