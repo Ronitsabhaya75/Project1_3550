@@ -1,3 +1,56 @@
+# JWKS Server - Project-3
+```
+Name: Ronitkumar Sabhaya
+EUID: rds0305
+Email: ronitkumarsabhaya@my.unt.edu
+CSCE 3550 - Foundations of Cyber Security
+Project 3 - Extending the JWKS Server
+```
+
+## Overview
+
+Completing the project 3 jwks server
+
+## Steps to install and run the program
+
+step-0:
+```bash
+git clone https://github.com/Ronitsabhaya75/Project1_3550.git
+```
+
+step-1: install dependency
+```bash
+pip3 install -r requirements.txt 
+```
+
+step2: export wy key
+```bash
+export NOT_WY_KEY="your key" 
+```
+
+step3: start program
+```bash
+python3 main.py
+```
+
+step4: testing
+```bash
+python3 -m unittest test_Project3.py -v
+```
+
+step5: linting
+```bash
+pylint main.py
+```
+
+## AI Prompts:
+1. fix the code with requirements
+2. First error ``` Private Keys are encrypted in the database │ sql: Scan error on column index 2, name "exp": converting driver.Value type float64 ("1.743977258595126e+09") to a int64: invalid syntax │       25 │       0 ```
+3. Second error ```/auth requests are logged                  │ no logs found │       10 │       0 ```
+4. Third error ```/auth is rate-limited (optional)           │        │       25 │       0 │```
+5. Fourth error ```/auth requests are logged                  │ missing destination name status_code in *[]main.authLog │       10 │       0 ```
+6. Fourth error ```time=2025-04-19T14:49:24.684-05:00 level=ERROR msg="/auth requests are logged" err="missing destination name status_code in *[]main.authLog"```
+
 
 
 # JWKS Server - Project-2
@@ -119,46 +172,4 @@ This project implements an HTTP server that handles authentication and JWKS (JSO
 - **Method**: `POST`
 - **Description**: Generates a JWT token with a specified expiration time.
 - **Query Parameters**:
-  - `expired`: If `true`, an expired token is generated.
-- **Response**:
-  - JSON object containing the JWT token:
-    ```json
-    {
-      "token": "<JWT_TOKEN>"
-    }
-    ```
-
-### `/.well-known/jwks.json`
-- **Method**: `GET`
-- **Description**: Returns the JSON Web Key Set (JWKS) containing public keys and metadata.
-- **Response**:
-  - JSON object containing an array of keys:
-    ```json
-    {
-      "keys": [
-        {
-          "kid": "<KEY_ID>",
-          "kty": "RSA",
-          "use": "sig",
-          "alg": "RS256",
-          "n": "<MODULUS>",
-          "e": "<EXPONENT>"
-        }
-      ]
-    }
-    ```
-
-## Dependencies
-
-- `http.server`: For handling HTTP requests.
-- `jwt`: For creating and verifying JWT tokens.
-- `cryptography`: For RSA key generation and public key handling.
-
-
-
-## ChatGPt and DeepSeek Promopts:
-1.  Explain detail about Restful jwks server and relation of JWT and JWKS 
-2.  Give me Sample code for jwks server
-3.  Firstly error I got was my JWT token was not exprieing and I paste the error in GPT and told to change it to 10secs.
-4.  Then Another error was Patch was found invalid I prompted to solve using HTTP server not FAST API to see if the error was still there but it wasnt resolved
-5.  Prompoted to write the 10 unit test which explicitly test all parts of code.
+  - `expired`: If `true`, an expired
